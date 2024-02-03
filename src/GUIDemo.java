@@ -2,6 +2,8 @@ import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.JTextArea;
+import java.awt.BorderLayout;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -10,6 +12,7 @@ public class GUIDemo {
 
     private JFrame frame;
     private JTextField input;
+    private JTextArea ta;
     private JLabel label;
     private JButton button;
     private JButton button2;
@@ -21,6 +24,8 @@ public class GUIDemo {
         button = new JButton("Send!");
         button2 = new JButton("Jump Scare");
         label = new JLabel("Hello");
+        // JTextArea allows multiple lines unlike JLabel
+        ta = new JTextArea("Hello. \n This is a JTextArea.");
         // JTextField(column size);
         // Column Size = How many letters can fix in the box
         input = new JTextField(10);
@@ -30,15 +35,18 @@ public class GUIDemo {
 
     public void setUpGUI() {
         Container cp = frame.getContentPane();
-        FlowLayout flow = new FlowLayout();
-        cp.setLayout(flow);
+//        FlowLayout flow = new FlowLayout();
+        // More Customizable
+        BorderLayout bord = new BorderLayout();
+        cp.setLayout(bord);
         frame.setSize(width,height);
         frame.setTitle("GUI Demo");
         // Adding content into the FlowLayout format
-        cp.add(input);
-        cp.add(label);
-        cp.add(button);
-        cp.add(button2);
+        cp.add(input, BorderLayout.NORTH);
+        cp.add(label, BorderLayout.SOUTH);
+        cp.add(button, BorderLayout.WEST);
+        cp.add(button2, BorderLayout.EAST);
+        cp.add(ta, BorderLayout.CENTER);
         // Remove it from the original content pane
 //        frame.add(button);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // HIDE is another option
