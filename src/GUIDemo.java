@@ -49,17 +49,15 @@ public class GUIDemo {
         ActionListener buttonListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Click!");
-            }
-        };
-
-        ActionListener buttonListener2 = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.out.println("Boo");
+                Object obj = e.getSource();
+                if (obj == button) {
+                    System.out.println("Click!");
+                } else if (obj == button2) {
+                    System.out.println("Boo");
+                }
             }
         };
         button.addActionListener(buttonListener);
-        button2.addActionListener(buttonListener2);
+        button2.addActionListener(buttonListener);
     }
 }
