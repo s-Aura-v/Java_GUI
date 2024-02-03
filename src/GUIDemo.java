@@ -19,7 +19,7 @@ public class GUIDemo {
     public GUIDemo(int w, int h) {
         frame = new JFrame();
         button = new JButton("Click Button!");
-        button2 = new JButton("Button 2");
+        button2 = new JButton("Jump Scare");
         label = new JLabel("Hello");
         // JTextField(column size);
         // Column Size = How many letters can fix in the box
@@ -52,6 +52,14 @@ public class GUIDemo {
                 System.out.println("Click!");
             }
         };
+
+        ActionListener buttonListener2 = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Boo");
+            }
+        };
         button.addActionListener(buttonListener);
+        button2.addActionListener(buttonListener2);
     }
 }
