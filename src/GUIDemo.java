@@ -18,7 +18,7 @@ public class GUIDemo {
 
     public GUIDemo(int w, int h) {
         frame = new JFrame();
-        button = new JButton("Click Button!");
+        button = new JButton("Send!");
         button2 = new JButton("Jump Scare");
         label = new JLabel("Hello");
         // JTextField(column size);
@@ -51,7 +51,10 @@ public class GUIDemo {
             public void actionPerformed(ActionEvent e) {
                 Object obj = e.getSource();
                 if (obj == button) {
-                    System.out.println("Click!");
+                    String s = input.getText();
+                    label.setText(s);
+                    // Clear input field after clicking send
+                    input.setText("");
                 } else if (obj == button2) {
                     System.out.println("Boo");
                 }
