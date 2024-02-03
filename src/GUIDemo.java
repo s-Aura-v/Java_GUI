@@ -1,17 +1,11 @@
-import javax.swing.JFrame;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import javax.swing.JTextArea;
-import java.awt.BorderLayout;
-import java.awt.GridLayout;
+import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import java.awt.event.*;
 
 public class GUIDemo {
 
     private JFrame frame;
+    private JPanel panel;
     private JTextField input;
     private JTextArea ta;
     private JLabel label;
@@ -23,6 +17,7 @@ public class GUIDemo {
 
     public GUIDemo(int w, int h) {
         frame = new JFrame();
+        panel = new JPanel(new GridLayout(1,2));
         button = new JButton("Send!");
         button2 = new JButton("Jump Scare");
         button3 = new JButton("Apologies");
@@ -45,14 +40,20 @@ public class GUIDemo {
         frame.setSize(width,height);
         frame.setTitle("GUI Demo");
         // Adding content into the FlowLayout format
-        cp.add(input);
-        cp.add(label);
-        cp.add(ta);
-        cp.add(button);
-        cp.add(button2);
-        cp.add(button3);
+//        cp.add(input);
+//        cp.add(label);
+//        cp.add(ta);
+//        cp.add(button);
+//        cp.add(button2);
+//        cp.add(button3);
         // Remove it from the original content pane
 //        frame.add(button);
+
+        // Post Panel
+        cp.add(button);
+        panel.add(button2);
+        panel.add(button3);
+        frame.add(panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // HIDE is another option
         frame.setVisible(true);
     }
